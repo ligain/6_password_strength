@@ -7,8 +7,5 @@ PASSWORD_GRADES = (
 
 SCORE_STEP = 10
 
-RESULT_TEMPLATE = '''
-Your password: {password} 
-is {password_grade} and has score: {password_score} 
-out of {score_step}
-'''
+RESULT_TEMPLATE = 'Your password is {password_grade} and ' \
+                  'has score: {password_score} out of {score_step}'

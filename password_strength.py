@@ -1,6 +1,7 @@
-import argparse
 import math
 import string
+import getpass
+
 
 from constants import (
     PASSWORD_GRADES,
@@ -56,25 +57,12 @@ def score_password_strength(password_strength,
     return score
 
 
-def get_args():
-    parser = argparse.ArgumentParser(
-        description='Password strength checker'
-    )
-    parser.add_argument(
-        '-p', '--password',
-        help='password to analyze',
-        type=str,
-        required=True
-    )
-    return parser.parse_args()
-
-
 if __name__ == '__main__':
 
-    args = get_args()
+    typed_password = getpass.getpass(prompt='Enter password: ')
 
     password_strength = get_password_strength(
-        args.password
+        typed_password
     )
 
     password_grade = get_password_grade(
@@ -90,10 +78,8 @@ if __name__ == '__main__':
 
     print(
         RESULT_TEMPLATE.format(
-            password=args.password,
             password_grade=password_grade,
             password_score=password_score,
             score_step=SCORE_STEP
         )
     )
-
