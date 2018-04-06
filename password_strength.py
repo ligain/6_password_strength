@@ -61,6 +61,10 @@ if __name__ == '__main__':
 
     typed_password = getpass.getpass(prompt='Enter password: ')
 
+    if not typed_password:
+        exit('You should enter password')
+
+
     password_strength = get_password_strength(
         typed_password
     )
